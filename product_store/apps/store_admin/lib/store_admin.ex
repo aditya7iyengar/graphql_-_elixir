@@ -41,6 +41,7 @@ defmodule StoreAdmin do
   end
 
   defp _aisle_for_product("graphql", storage_type, size, category_name) do
+    StoreAdmin.GraphQL.aisle_for_product(storage_type, size, category_name)
   end
 
   defp _aisle_for_product("rest", storage_type, size, category_name) do
