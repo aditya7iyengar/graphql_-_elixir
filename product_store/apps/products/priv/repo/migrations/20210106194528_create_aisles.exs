@@ -9,6 +9,5 @@ defmodule Products.Repo.Migrations.CreateAisles do
 
       timestamps()
     end
-
   end
 end

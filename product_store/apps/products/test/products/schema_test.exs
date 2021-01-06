@@ -7,7 +7,11 @@ defmodule Products.SchemaTest do
     alias Products.Schema.Category
 
     @valid_attrs %{code: "some code", description: "some description", name: "some name"}
-    @update_attrs %{code: "some updated code", description: "some updated description", name: "some updated name"}
+    @update_attrs %{
+      code: "some updated code",
+      description: "some updated description",
+      name: "some updated name"
+    }
     @invalid_attrs %{code: nil, description: nil, name: nil}
 
     def category_fixture(attrs \\ %{}) do
@@ -132,8 +136,18 @@ defmodule Products.SchemaTest do
   describe "products" do
     alias Products.Schema.Product
 
-    @valid_attrs %{brand: "some brand", description: "some description", name: "some name", size: 42}
-    @update_attrs %{brand: "some updated brand", description: "some updated description", name: "some updated name", size: 43}
+    @valid_attrs %{
+      brand: "some brand",
+      description: "some description",
+      name: "some name",
+      size: 42
+    }
+    @update_attrs %{
+      brand: "some updated brand",
+      description: "some updated description",
+      name: "some updated name",
+      size: 43
+    }
     @invalid_attrs %{brand: nil, description: nil, name: nil, size: nil}
 
     def product_fixture(attrs \\ %{}) do

@@ -293,4 +293,18 @@ defmodule Products.Schema do
   def change_product(%Product{} = product, attrs \\ %{}) do
     Product.changeset(product, attrs)
   end
+
+  def aisle_for_product(storage_type, size, category_name) do
+    query =
+      Aisle
+      |> where([a], a.capacity >= ^size)
+      |> where([a], a.type == ^storage_type)
+      |> join(:inner, [a], p in Product, on: a.id == p.aisle_id)
+      |> join(:inner, [_a, p], c in Category, on: c.id == p.category_id)
+      |> where([_a, _p, c], c.name == ^category_name)
+      |> limit(1)
+      |> select([a, p], {a.number, p.name})
+
+    Repo.one(query)
+  end
 end

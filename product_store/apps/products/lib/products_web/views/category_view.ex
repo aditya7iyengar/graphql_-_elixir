@@ -11,9 +11,11 @@ defmodule ProductsWeb.CategoryView do
   end
 
   def render("category.json", %{category: category}) do
-    %{id: category.id,
+    %{
+      id: category.id,
       name: category.name,
       code: category.code,
-      description: category.description}
+      description: category.description
+    }
   end
 end

@@ -10,40 +10,36 @@ defmodule StoreAdminTest do
 
     Ecto.Adapters.SQL.Sandbox.mode(Products.Repo, {:shared, self()})
 
-    {:ok, icecream_category} = Repo.insert(
-      %Category{
+    {:ok, icecream_category} =
+      Repo.insert(%Category{
         code: "icecream",
         name: "icecream",
         description: "Ice Cream"
-      }
-    )
+      })
 
-    {:ok, dairy_category} = Repo.insert(
-      %Category{
+    {:ok, dairy_category} =
+      Repo.insert(%Category{
         code: "dairy",
         name: "dairy",
         description: "Ice Cream"
-      }
-    )
+      })
 
-    {:ok, icecream_aisle} = Repo.insert(
-      %Aisle{
+    {:ok, icecream_aisle} =
+      Repo.insert(%Aisle{
         number: 1,
         capacity: 100,
         type: "frozen"
-      }
-    )
+      })
 
-    {:ok, dairy_aisle} = Repo.insert(
-      %Aisle{
+    {:ok, dairy_aisle} =
+      Repo.insert(%Aisle{
         number: 2,
         capacity: 0,
         type: "cold"
-      }
-    )
+      })
 
-    {:ok, _icecream_product} = Repo.insert(
-      %Product{
+    {:ok, _icecream_product} =
+      Repo.insert(%Product{
         storage_type: "frozen",
         name: "Vegan Chunky Monkey",
         brand: "Ben N Jerry's",
@@ -51,11 +47,10 @@ defmodule StoreAdminTest do
         size: 1,
         category_id: icecream_category.id,
         aisle_id: icecream_aisle.id
-      }
-    )
+      })
 
-    {:ok, _dairy_product} = Repo.insert(
-      %Product{
+    {:ok, _dairy_product} =
+      Repo.insert(%Product{
         storage_type: "cold",
         name: "Almond Milk",
         brand: "Silk",
@@ -63,8 +58,7 @@ defmodule StoreAdminTest do
         size: 2,
         category_id: dairy_category.id,
         aisle_id: dairy_aisle.id
-      }
-    )
+      })
 
     :ok
   end

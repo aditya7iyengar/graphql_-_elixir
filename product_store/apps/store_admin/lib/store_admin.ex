@@ -43,9 +43,10 @@ defmodule StoreAdmin do
   defp _aisle_for_product("graphql", storage_type, size, category_name) do
   end
 
-  defp _aisle_for_product("bad-rest", storage_type, size, category_name) do
-  end
-
-  defp _aisle_for_product("good-rest", storage_type, size, category_name) do
+  defp _aisle_for_product("rest", storage_type, size, category_name) do
+    # Multiple REST calls
+    # vs
+    # Boundaries
+    StoreAdmin.REST.aisle_for_product(storage_type, size, category_name)
   end
 end

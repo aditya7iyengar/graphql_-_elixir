@@ -9,6 +9,5 @@ defmodule Products.Repo.Migrations.CreateCategories do
 
       timestamps()
     end
-
   end
 end

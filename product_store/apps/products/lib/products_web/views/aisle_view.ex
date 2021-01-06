@@ -11,9 +11,6 @@ defmodule ProductsWeb.AisleView do
   end
 
   def render("aisle.json", %{aisle: aisle}) do
-    %{id: aisle.id,
-      number: aisle.number,
-      type: aisle.type,
-      capacity: aisle.capacity}
+    %{id: aisle.id, number: aisle.number, type: aisle.type, capacity: aisle.capacity}
   end
 end

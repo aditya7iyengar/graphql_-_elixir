@@ -157,6 +157,11 @@ a JSON document.
     - Currently StoreAdmin talks with the Ecto app at the Application layer
       using Elixir.
 
+    - Elixir implementation shows a lack of contextual boundary between
+      apps
+
+    - REST implementation
+
 ## Things to Consider
 
 * Flexibility comes with Complexity
