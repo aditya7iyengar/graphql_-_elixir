@@ -42,6 +42,7 @@ patat:
 ## WHAT DOES GRAPHQL OFFER?
 
 - Gives the client control over the shape of the data
+    * `(⌐■_■)` "If REST is a fine dining RESTaurant, GraphQL is a buffet.."
 
 - Strongly typed API
 
@@ -49,7 +50,7 @@ patat:
 
 - Contract-Driven by nature
 
-- Built-in versioning
+- Versioning not required
 
 - Self documentation.. kind of.. `¯\_(ツ)_/¯`
 
@@ -62,12 +63,14 @@ patat:
 
 ## WHEN TO PICK GRAPHQL OVER REST?
 
-* `(⌐■_■)` "If REST is a fine dining RESTaurant, GraphQL is a buffet.."
+* Pick GraphQL over REST when:
 
-* Pick GraphQL over REST:
-
-    - When the client needs to fetch different combinations of nested data
+    - The client needs to fetch different combinations of nested data
       associations
+
+    - Easily protect from overfetching or underfetching
+
+    - Easily protect from N + 1 query problem
 
     - Support faster iterations or volatile requirements
 
@@ -77,11 +80,10 @@ patat:
 
     - Support faster Development overall
 
-    - Easily protect from overfetching
-
     - Lesser need for API documentation
 
     - Easily aggregate multiple APIs into one
+
 
 ## GRAPHQL FUNDAMENTALS
 
@@ -142,14 +144,15 @@ patat:
 
     - Good performance
 
-    - Proven: Used by many Elixir production apps over last 3 years.
+    - Proven (kind of): Used by many Elixir production apps over last 3 years.
 
     - Has many advanced features like DataLoaders, GraphiQL integration,
+      Complexity Analysis for Queries, Granular Instrumentation and Tracing,
       Phoenix integration, Auth Plugs etc
 
 * Product Store use case [Elixir/Coding/Demo]
 
-    - Ecto app (Elixir wrapper around the DB):
+    - Products app (Elixir + Web wrapper around the DB):
         - Products, Categories and Aisles
 
     - StoreAdmin App:
@@ -159,21 +162,26 @@ patat:
     - Currently StoreAdmin talks with the Ecto app at the Application layer
       using Elixir.
 
-    - Elixir implementation shows a lack of contextual boundary between
-      apps
+    - Elixir implementation
+        - StoreAdmin makes a query to the Products app
+        - shows a lack of contextual boundary between apps
 
     - REST implementation
         - multiple requests
         - with a proper boundary
 
     - GraphQL implementation
-        - Schema
         - GraphiQL
+        - Router
+        - Schema
+        - Resolvers
+        - DataLoaders
         - schema.json & Static Query validation
+
 
 ## Things to Consider
 
-* Flexibility comes with Complexity
+* Clear disadvantages of GraphQL
 
     - Harder to cache HTTP requests as the requests are more dynamic
 
@@ -183,7 +191,10 @@ patat:
 
     - Potential scaling and performance issues
 
-* Conway's Law is a huge factor
+* Conway's law + Flexibility comes with Complexity
+
+* Quick Storm + MystiqueQL PR: https://github.com/blockfi/blockfi-mystique/pull/2680
+
 
 ## Discussion
 
