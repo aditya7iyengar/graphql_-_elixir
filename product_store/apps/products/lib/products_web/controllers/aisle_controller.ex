@@ -43,10 +43,9 @@ defmodule ProductsWeb.AisleController do
 
   def for_product(conn, %{
         "storage_type" => storage_type,
-        "size" => size,
-        "category_name" => category_name
+        "size" => size
       }) do
-    case Schema.aisle_for_product(storage_type, size, category_name) do
+    case Schema.aisle_for_product(storage_type, size) do
       nil -> json(conn, "null")
       {a, p} -> json(conn, %{aisle_number: a, product_name: p})
       other -> IO.inspect(other, label: "OTHER")

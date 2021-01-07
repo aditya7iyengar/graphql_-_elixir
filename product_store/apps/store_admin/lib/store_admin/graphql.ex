@@ -3,16 +3,16 @@ defmodule StoreAdmin.GraphQL do
 
   @query """
   query {
-    products(first: 1, category_name: $category_name) {
-      name
-      aisles(first: 1, min_size: $size, type: $storage_type) {
-        number
+    aisles(first: 1, min_capacity: $size, type: $storage_type) {
+      number
+      products(first: 1) {
+        name
       }
     }
   }
   """
 
-  def aisle_for_product(storage_type, size, category_name) do
+  def aisle_for_product(storage_type, size) do
     resp =
       HTTPoison.post(
         @url,
@@ -20,8 +20,7 @@ defmodule StoreAdmin.GraphQL do
           query: @query,
           variables: %{
             storage_type: storage_type,
-            size: size,
-            category_name: category_name
+            size: size
           }
         }
       )

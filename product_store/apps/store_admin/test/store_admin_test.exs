@@ -63,13 +63,12 @@ defmodule StoreAdminTest do
     :ok
   end
 
-  describe "aisle_for_product/3" do
+  describe "aisle_for_product/2" do
     test "cannot find aisle if none available" do
       storage_type = "cold"
       size = 1
-      category_name = "dairy"
 
-      result = StoreAdmin.aisle_for_product(storage_type, size, category_name)
+      result = StoreAdmin.aisle_for_product(storage_type, size)
 
       assert result == "No aisle available to place the product"
     end
@@ -77,9 +76,8 @@ defmodule StoreAdminTest do
     test "finds the first aisle available" do
       storage_type = "frozen"
       size = 1
-      category_name = "icecream"
 
-      result = StoreAdmin.aisle_for_product(storage_type, size, category_name)
+      result = StoreAdmin.aisle_for_product(storage_type, size)
 
       assert result =~ "on aisle 1 next to Vegan Chunky Monkey"
     end

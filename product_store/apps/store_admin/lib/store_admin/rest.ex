@@ -1,8 +1,8 @@
 defmodule StoreAdmin.REST do
   @url "http://localhost:4000/api/aisles/for_product"
 
-  def aisle_for_product(storage_type, size, category_name) do
-    resp = HTTPoison.get(url_with_params(storage_type, size, category_name))
+  def aisle_for_product(storage_type, size) do
+    resp = HTTPoison.get(url_with_params(storage_type, size))
 
     case resp do
       {:ok, %HTTPoison.Response{body: "\"null\""}} ->
@@ -18,7 +18,7 @@ defmodule StoreAdmin.REST do
     end
   end
 
-  defp url_with_params(storage_type, size, category_name) do
-    @url <> "?storage_type=#{storage_type}&size=#{size}&category_name=#{category_name}"
+  defp url_with_params(storage_type, size) do
+    @url <> "?storage_type=#{storage_type}&size=#{size}"
   end
 end

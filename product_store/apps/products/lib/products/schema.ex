@@ -118,6 +118,34 @@ defmodule Products.Schema do
   end
 
   @doc """
+  Returns the list of aisles.
+
+  ## Examples
+
+      iex> list_aisles()
+      [%Aisle{}, ...]
+
+  """
+  def list_aisles(args) do
+    num = Map.fetch!(args, :first)
+    min_capacity = Map.get(args, :min_capacity, 100_000)
+    storage_type = Map.get(args, :storage_type, nil)
+
+    query =
+      case storage_type do
+        nil ->
+          where(Aisle, [a], a.capacity >= ^min_capacity)
+
+        other ->
+          where(Aisle, [a], a.capacity >= ^min_capacity and a.type == ^other)
+      end
+
+    query
+    |> limit(^num)
+    |> Repo.all()
+  end
+
+  @doc """
   Gets a single aisle.
 
   Raises `Ecto.NoResultsError` if the Aisle does not exist.
@@ -294,14 +322,11 @@ defmodule Products.Schema do
     Product.changeset(product, attrs)
   end
 
-  def aisle_for_product(storage_type, size, category_name) do
+  def aisle_for_product(storage_type, size) do
     query =
       Aisle
-      |> where([a], a.capacity >= ^size)
-      |> where([a], a.type == ^storage_type)
+      |> where([a], a.capacity >= ^size and a.type == ^storage_type)
       |> join(:inner, [a], p in Product, on: a.id == p.aisle_id)
-      |> join(:inner, [_a, p], c in Category, on: c.id == p.category_id)
-      |> where([_a, _p, c], c.name == ^category_name)
       |> limit(1)
       |> select([a, p], {a.number, p.name})
 
