@@ -27,7 +27,6 @@ defmodule ProductsWeb.Router do
   end
 
   if Mix.env() == :dev do
-    # Enables GraphiQL only for development
     forward "/graphiql", Absinthe.Plug.GraphiQL,
       default_url: "/graphql_api",
       schema: ProductsQL.Schema,

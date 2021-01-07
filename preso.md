@@ -162,6 +162,8 @@ a JSON document.
 
     - REST implementation
 
+    - GraphQL implementation
+
 ## Things to Consider
 
 * Flexibility comes with Complexity

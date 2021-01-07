@@ -32,7 +32,7 @@ defmodule StoreAdmin.GraphQL do
     {Map.get(aisle, "number"), name}
   end
 
-  defp query(size, storage_type) do
+  def query(size, storage_type) do
     """
     query {
       aisles(first: 1, minCapacity: #{size}, storageType: "#{storage_type}") {
