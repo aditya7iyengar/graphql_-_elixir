@@ -7,6 +7,8 @@ defmodule Products.Schema.Aisle do
     field :number, :integer
     field :type, :string
 
+    has_many :products, Products.Schema.Product
+
     timestamps()
   end
 

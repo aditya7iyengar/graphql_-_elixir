@@ -7,9 +7,10 @@ defmodule Products.Schema.Product do
     field :description, :string
     field :name, :string
     field :size, :integer
-    field :category_id, :id
     field :aisle_id, :id
     field :storage_type, :string, default: "warm"
+
+    belongs_to :category, Products.Schema.Category
 
     timestamps()
   end

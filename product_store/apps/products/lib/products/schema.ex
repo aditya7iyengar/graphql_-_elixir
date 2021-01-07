@@ -128,7 +128,7 @@ defmodule Products.Schema do
   """
   def list_aisles(args) do
     num = Map.fetch!(args, :first)
-    min_capacity = Map.get(args, :min_capacity, 100_000)
+    min_capacity = Map.get(args, :min_capacity, 0)
     storage_type = Map.get(args, :storage_type, nil)
 
     query =
