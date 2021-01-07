@@ -25,6 +25,7 @@ defmodule StoreAdmin.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:common_graphql_client, "~> 0.6.0"},
       {:httpoison, "~> 1.7.0"},
       {:products, in_umbrella: true}
     ]
