@@ -46,7 +46,7 @@ defmodule StoreAdmin do
   defp _aisle_for_product("rest", storage_type, size) do
     # Multiple REST calls
     # vs
-    # Boundaries
+    # With a proper Boundary
     StoreAdmin.REST.aisle_for_product(storage_type, size)
   end
 end

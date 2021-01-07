@@ -161,8 +161,13 @@ a JSON document.
       apps
 
     - REST implementation
+      - multiple requests
+      - with a proper boundary
 
     - GraphQL implementation
+      - Schema
+      - GraphiQL
+      - schema.json & Static Query validation
 
 ## Things to Consider
 
