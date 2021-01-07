@@ -30,7 +30,7 @@ patat:
 - Query Language for APIs developed by Facebook; Open Source
 
 - Clients send a GraphQL document to the server and the server responds with
-a JSON document.
+  a JSON document.
 
 - It gives the users of the API the ability to describe the data they want.
 
@@ -51,7 +51,7 @@ a JSON document.
 
 - Built-in versioning
 
-- Self documentation.. kind of..
+- Self documentation.. kind of.. `¯\_(ツ)_/¯`
 
 - Ability to easily aggregate multiple APIs into one
 
@@ -62,14 +62,16 @@ a JSON document.
 
 ## WHEN TO PICK GRAPHQL OVER REST?
 
-* "If REST is a fine dining RESTaurant, GraphQL is a buffet.."
+* `(⌐■_■)` "If REST is a fine dining RESTaurant, GraphQL is a buffet.."
 
-* Pick GraphQL over REST when you need to:
+* Pick GraphQL over REST:
 
     - When the client needs to fetch different combinations of nested data
       associations
 
     - Support faster iterations or volatile requirements
+
+    - When you're tired of v1, v2 .... `(╥﹏╥)`
 
     - Easily establish client-server contract
 
@@ -161,13 +163,13 @@ a JSON document.
       apps
 
     - REST implementation
-      - multiple requests
-      - with a proper boundary
+        - multiple requests
+        - with a proper boundary
 
     - GraphQL implementation
-      - Schema
-      - GraphiQL
-      - schema.json & Static Query validation
+        - Schema
+        - GraphiQL
+        - schema.json & Static Query validation
 
 ## Things to Consider
 
@@ -185,6 +187,11 @@ a JSON document.
 
 ## Discussion
 
+```
+(\______/)
+( ͡ ͡° ͜ ʖ ͡ ͡°)
+  \╭☞   \╭☞
+```
 
 ```
  ________  __                    __    __                ______                                __         ______   __
